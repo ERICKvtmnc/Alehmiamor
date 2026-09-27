@@ -69,6 +69,7 @@ let score = 0;
 let escaped = 0;
 let heartId = 0;
 let spawnTimer;
+let gameStartTime = 0;
 
 function updateLives() {
   livesElement.textContent = `${"♥ ".repeat(3 - escaped)}${"♡ ".repeat(
@@ -84,7 +85,7 @@ function clearFallingHearts() {
 
 function finishGame() {
   playing = false;
-  clearInterval(spawnTimer);
+  clearTimeout(spawnTimer);
   clearFallingHearts();
   gameHud.classList.add("hidden");
   gameOver.classList.remove("hidden");
@@ -107,7 +108,12 @@ function createFallingHeart() {
   if (!playing) return;
 
   const heart = document.createElement("button");
-  const duration = Math.random() * 2 + 3;
+  const elapsedSeconds = (Date.now() - gameStartTime) / 1000;
+  const speedIncrease = Math.min(elapsedSeconds * 0.12, 2.1);
+  const duration = Math.max(
+    1.15,
+    Math.random() * 1.35 + 2.75 - speedIncrease,
+  );
 
   heart.type = "button";
   heart.className = "falling-heart";
@@ -128,13 +134,14 @@ function createFallingHeart() {
 }
 
 function startGame() {
-  clearInterval(spawnTimer);
+  clearTimeout(spawnTimer);
   clearFallingHearts();
 
   playing = true;
   score = 0;
   escaped = 0;
   heartId = 0;
+  gameStartTime = Date.now();
 
   scoreElement.textContent = "0";
   updateLives();
@@ -142,14 +149,23 @@ function startGame() {
   gameOver.classList.add("hidden");
   gameHud.classList.remove("hidden");
 
-  spawnTimer = setInterval(() => {
-    if (
-      playing &&
-      gameArea.querySelectorAll(".falling-heart").length < 8
-    ) {
+  const scheduleNextHeart = () => {
+    if (!playing) {
+      return;
+    }
+
+    const elapsedSeconds = (Date.now() - gameStartTime) / 1000;
+    const spawnDelay = Math.max(260, 760 - elapsedSeconds * 18);
+    const activeHearts = gameArea.querySelectorAll(".falling-heart").length;
+
+    if (activeHearts < 8) {
       createFallingHeart();
     }
-  }, 800);
+
+    spawnTimer = setTimeout(scheduleNextHeart, spawnDelay);
+  };
+
+  scheduleNextHeart();
 }
 
 startButton.addEventListener("click", startGame);
