@@ -154,9 +154,3 @@ function startGame() {
 
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", startGame);
-
-document.querySelector("#video-placeholder").addEventListener("click", () => {
-  const message = document.querySelector("#video-placeholder small");
-  message.textContent =
-    "Dica: adicione seu arquivo de vídeo e use <video controls> no index.html.";
-});
