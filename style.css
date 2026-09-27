@@ -1,13 +1,13 @@
 :root {
-  --bg: #1a0b2e;
-  --bg-light: #381a5e;
-  --pink: #ff9a9e;
-  --pink-light: #fecfef;
-  --purple: #9f70d8;
-  --text: #f8edf5;
-  --muted: #c5adc6;
-  --glass: rgba(255, 255, 255, 0.045);
-  --border: rgba(255, 255, 255, 0.1);
+  --bg: #2a1b3d;
+  --bg-light: #725578;
+  --pink: #e8a7b8;
+  --pink-light: #f9d6df;
+  --purple: #ae91c6;
+  --text: #fff4f7;
+  --muted: #ddc1cc;
+  --glass: rgba(255, 245, 249, 0.08);
+  --border: rgba(255, 214, 225, 0.22);
 }
 
 * {
@@ -22,8 +22,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 85% 0%, #4b2171 0, transparent 34rem),
-    radial-gradient(circle at 10% 55%, #291445 0, transparent 28rem),
+    radial-gradient(circle at 85% 0%, #765579 0, transparent 34rem),
+    radial-gradient(circle at 10% 55%, #4a2c55 0, transparent 28rem),
     var(--bg);
   background-attachment: fixed;
   font-family: "Lato", sans-serif;
@@ -65,7 +65,7 @@ p {
 .game-over-heart {
   color: var(--pink);
   font-size: 4rem;
-  text-shadow: 0 0 30px rgba(255, 154, 158, 0.6);
+  text-shadow: 0 0 30px rgba(232, 167, 184, 0.58);
   animation: heartbeat 2s ease-in-out infinite;
 }
 
@@ -103,7 +103,7 @@ p {
 .floating-heart {
   position: absolute;
   bottom: -3rem;
-  color: rgba(255, 154, 158, 0.45);
+  color: rgba(244, 180, 199, 0.52);
   font-size: var(--size);
   animation: float-up var(--duration) linear var(--delay) infinite;
 }
@@ -195,14 +195,14 @@ h2 {
   position: absolute;
   top: -1.75rem;
   left: -1rem;
-  color: rgba(255, 154, 158, 0.28);
+  color: rgba(232, 167, 184, 0.34);
   font-size: 5rem;
 }
 
 .letter-card h2 {
   margin-top: 0;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 154, 158, 0.2);
+  border-bottom: 1px solid rgba(232, 167, 184, 0.28);
   text-align: center;
 }
 
@@ -256,7 +256,7 @@ h2 {
   place-items: center;
   width: clamp(5.5rem, 18vw, 7rem);
   height: clamp(6.5rem, 20vw, 8rem);
-  border: 1px solid rgba(255, 154, 158, 0.2);
+  border: 1px solid rgba(232, 167, 184, 0.28);
   border-radius: 1rem;
   background: var(--glass);
   color: white;
@@ -394,7 +394,7 @@ h2 {
   cursor: pointer;
   font-size: 2.8rem;
   line-height: 1;
-  text-shadow: 0 0 0.6rem rgba(255, 154, 158, 0.8);
+  text-shadow: 0 0 0.6rem rgba(232, 167, 184, 0.85);
   animation: fall var(--fall-duration) linear forwards;
 }
 
@@ -412,7 +412,7 @@ h2 {
   border: 0;
   color: white;
   background: var(--pink);
-  box-shadow: 0 0.5rem 1.5rem rgba(255, 154, 158, 0.2);
+  box-shadow: 0 0.5rem 1.5rem rgba(232, 167, 184, 0.28);
 }
 
 .outline-button {
