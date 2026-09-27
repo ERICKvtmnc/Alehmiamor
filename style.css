@@ -217,32 +217,6 @@ h2 {
   margin: 1.5rem 0;
 }
 
-.video-placeholder {
-  display: grid;
-  place-items: center;
-  min-height: 20rem;
-  padding: 2rem;
-  border: 1px solid var(--border);
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(135deg, rgba(255, 154, 158, 0.12), rgba(56, 26, 94, 0.5)),
-    var(--glass);
-  text-align: center;
-}
-
-.video-placeholder p {
-  margin: 1rem 0 0;
-  color: var(--pink);
-  font-family: "Playfair Display", serif;
-  font-size: 1.35rem;
-}
-
-.video-placeholder small {
-  max-width: 28rem;
-  color: var(--muted);
-}
-
-.play-button,
 .primary-button,
 .outline-button {
   cursor: pointer;
@@ -250,18 +224,6 @@ h2 {
   transition: 0.25s ease;
 }
 
-.play-button {
-  display: grid;
-  place-items: center;
-  width: 5rem;
-  height: 5rem;
-  border: 1px solid rgba(255, 154, 158, 0.35);
-  color: white;
-  background: rgba(255, 154, 158, 0.2);
-  font-size: 1.5rem;
-}
-
-.play-button:hover,
 .primary-button:hover {
   transform: scale(1.08);
   background: var(--pink);
